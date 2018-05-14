@@ -1,0 +1,32 @@
+{
+  "name": "gulp",
+  "version": "1.0.0",
+  "description": "gulp环境搭建",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18569505972/gulp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/18569505972/gulp/issues"
+  },
+  "homepage": "https://github.com/18569505972/gulp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-less": "^3.5.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-make-css-url-version": "^0.0.13",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rev-append": "^0.1.8",
+    "gulp-uglify": "^3.0.0"
+  }
+}

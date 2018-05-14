@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>健云e馆家</title>
+<script src="scripts/common/fixScreen.js"></script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-orientation" content="portrait"/>
+<meta name="360-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="browsermode" content="application"/>
+<meta name="msapplication-tap-highlight?rev=@@hash" content="no"/>
+<link href="css/zui.min.css?rev=@@hash" rel="stylesheet" />
+<link href="css/common.css?rev=@@hash" rel="stylesheet" />
+<link href="styles/pages/doctor_finish.css?rev=@@hash" rel="stylesheet" />
+</head>
+<body ms-controller="page">
+   <!--  <div class="bw-head-comm">
+        <a href="javascript:;" class="back-btn"><i class="bw-ico back-ico"></i></a>
+        <h2>问诊反馈</h2>
+    </div> -->
+    <div class="bw-main-comm">
+        <div class="height-line-80 margin-left-50">情况反馈</div>
+        <div class="margin-left-50 margin-right-50">
+            <textarea class="form-control height-150 fz-12 padding-top-10 padding-bottom-10 padding-left-20 padding-right-20" placeholder="请输入情况反馈" ms-duplex="illness"></textarea>
+        </div>
+        <div class="height-line-80 margin-left-50">嘱托医嘱</div>
+        <div class="margin-left-50 margin-right-50">
+            <textarea class="form-control height-150 fz-12 padding-top-10 padding-bottom-10 padding-left-20 padding-right-20" placeholder="请输入您的建议与嘱咐" ms-duplex="remark"></textarea>
+        </div>
+        <div class="margin-left-50 margin-right-50 margin-top-50">
+            <button class='bw-btn-model ' ms-click='switchPage'>提交</button>
+        </div>
+    </div>
+    <!-- S LoadingPage -->
+    <div class="modal fade modal-noborder loading-modal loading-modal-page in first-loading-page">
+      <div class="modal-dialog">
+        <div class="loader-model">
+          <i class="loader-icon"></i>
+          <div class="loader-inner ball-pulse"><div></div><div></div><div></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- E LoadingPage -->
+    <script src="scripts/libs/require.js?rev=@@hash"></script>
+    <script src="scripts/common/globalConfig.js?rev=@@hash"></script>
+    <script src="scripts/pages/doctor_finish.js?rev=@@hash"></script>
+</body>
+</html>
