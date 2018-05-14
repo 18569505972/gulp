@@ -8,7 +8,8 @@ cnpm install gulp-imagemin --save-dev  图片压缩模块
 cnpm install imagemin-pngquant --save-dev  png深度压缩  
 cnpm install gulp-cache --save-dev  cache缓存，只操作修改文件  
 cnpm install gulp-clean-css --save-dev  css压缩  
-cnpm install --save-dev gulp-less  将less文件编译成css    
+cnpm install --save-dev gulp-less  将less文件编译成css   
+cnpm install --save-dev gulp-sass  将sass文件编译成css    
 页面引用资源添加版本号，避免缓存
 cnpm install gulp-rev-append --save-dev 
 cnpm install gulp-uglify --save-dev  js压缩

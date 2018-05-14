@@ -19,6 +19,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-cache": "^1.0.2",
     "gulp-clean-css": "^3.9.4",
     "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
@@ -27,6 +28,7 @@
     "gulp-make-css-url-version": "^0.0.13",
     "gulp-plumber": "^1.2.0",
     "gulp-rev-append": "^0.1.8",
+    "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0"
   }
 }
