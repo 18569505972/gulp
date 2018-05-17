@@ -15,9 +15,9 @@ cnpm install gulp-rev-append --save-dev
 cnpm install gulp-uglify --save-dev  js压缩
 cnpm install --save-dev gulp-plumber  阻止 gulp 插件发生错误导致进程退出并输出错误日志  
 cnpm install gulp-autoprefixer --save-dev 自动处理浏览器前缀  
-cnpm install gulp-livereload --save-dev 文件发生变化浏览器自动刷新(适用于谷歌浏览器，需安装livereload插件)  
-
-
+cnpm install gulp-livereload --save-dev 文件发生变化浏览器自动刷新(适用于谷歌浏览器，需安装livereload插件)    
+cnpm install gulp-connect --save-dev 开启一个websocket服务，使用liveReload实现实时更新  
+cnpm install gulp-sequence --save-dev 管理task执行顺序  
 
 
 

@@ -21,6 +21,7 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-cache": "^1.0.2",
     "gulp-clean-css": "^3.9.4",
+    "gulp-connect": "^5.5.0",
     "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-less": "^3.5.0",
@@ -29,6 +30,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-rev-append": "^0.1.8",
     "gulp-sass": "^4.0.1",
+    "gulp-sequence": "^1.0.0",
     "gulp-uglify": "^3.0.0"
   }
 }
