@@ -2,6 +2,7 @@
 gulp环境搭建
 cnpm init  初始化package.json  
 cnpm install gulp --save-dev  下载gulp模块保存本地  
+cnpm install --save-dev gulp@next del  清理文件夹  
 cnpm install gulp-htmlmin --save-dev  
 （gulp-htmlmin可以压缩页面javascript、css，去除页面空格、注释，删除多余属性等）   
 cnpm install gulp-imagemin --save-dev  图片压缩模块  

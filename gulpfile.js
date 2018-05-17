@@ -13,6 +13,8 @@ const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const connect = require('gulp-connect');
 const gulpSequence = require('gulp-sequence');
+const del = require('del');
+const zip = require('gulp-zip');
 //html压缩
 gulp.task('testHtmlmin', function() {
     var options = {
@@ -114,10 +116,17 @@ gulp.task('ant_watch', function() {
     gulp.watch('css/**/*.less', ['compile-less'])
     gulp.watch('css/**/*.sass', ['compile-sass'])
     gulp.watch('src/js/**/*.js', ['jsmin'])
-})
+});
+//清空文件夹
+gulp.task('clean', function () {
+  return del([
+    'dist/**/*',
+  ]);
+});
 //启用
 gulp.task('default',
     gulpSequence(
+    	'clean',
         'testRev',
         'testAutoFx', 
         [
