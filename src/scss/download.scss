@@ -1,0 +1,95 @@
+@charset "utf-8";
+@import "app";
+
+//下载页面
+.downLoad{
+  text-align: center;
+  img{
+    display: block;
+    &.top_img{
+      @include px2rem(margin-bottom, 22);
+    }
+    &.ewm{
+      @include wh(229, 229);
+      margin: 0 auto;
+      @include px2rem(margin-top, 24);
+      @include px2rem(margin-bottom, 12);
+    }
+  }
+  .p_nojk{
+    @include font-dpr(36);
+    color: #000000;
+    letter-spacing: 2px;
+  }
+  .first-tit{
+    @include font-dpr(36);
+    color: #535353;
+    @include px2rem(line-height, 60);
+    span, em{
+      @include font-dpr(48);
+      color: #e33f3f;
+    }
+    em{
+      @include font-dpr(48);
+    }
+  }
+  .now,.open{
+    @include font-dpr(30);
+    color: #8c4028;
+    @include px2rem(line-height, 40);
+    @include px2rem(padding-top, 34);
+  }
+  .open{
+    @include font-dpr(24);
+    @include px2rem(padding-top, 0);
+    @include px2rem(padding-bottom, 18);
+  }
+}
+.downBtn{
+  background: url("../../assets/icon/download/btom_bg.png") no-repeat left bottom;
+  background-size: 100% 100%;
+  @include px2rem(padding-top, 108);
+  @include px2rem(padding-bottom, 67);
+  a{
+    display: block;
+    @include wh(364, 92);
+    @include px2rem(line-height, 92);
+    @include font-dpr(34);
+    color: #ffffff;
+    @extend %boradius8;
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+    text-align: center;
+    &:first-child{
+      @include px2rem(margin-bottom, 62);
+    }
+    span{
+      display: inline-block;
+      text-align: left;
+      margin: 0 auto;
+      @include px2rem(padding-left, 80);
+      @include px2rem(width, 246);
+      &.iphone{
+        background: url(../../assets/icon/download/iphone_icon.png) no-repeat left center;
+        @include px2rem(background-size, 45 52);
+      }
+      &.android{
+        background: url(../../assets/icon/download/android_icon.png) no-repeat left center;
+        @include px2rem(background-size, 45 52);
+      }
+    }
+  }
+}
+.an_box .ios_show {
+  display: none
+}
+.ios_box .an_show {
+  display: none
+}
+.pop_box{position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 10;background:#000;filter:alpha(opacity=80);background:rgba(0,0,0,0.8);}
+.close_btn{display: block;margin: 0 auto;height:10%;width: 30%; }
+.pop_txt{margin: 10px auto;}
+.ios_box .pop_txt{width: 90%;}
+.an_box .pop_txt{width: 80%;}
+.ios_box .close_btn{background: url("../../assets/icon/download/ios_close.png") no-repeat center;background-size: contain;}
+.an_box .close_btn{background: url("../../assets/icon/download/android_close.png") no-repeat center;background-size: contain;}

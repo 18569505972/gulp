@@ -1,0 +1,278 @@
+@import "app";
+.u_bg {
+  background-color: #f5f5f9;
+}
+.u_login_banner,.u_unlogin_banner{
+  width: 100%;
+  position: relative;
+  @include px2rem(height, 410);
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.u_login_banner{
+  padding-top: 1.1733rem /* 88/75 */;
+}
+.u_icon_warp {
+  position: relative;
+  @include px2rem(height, 180);
+}
+.u_icon{
+  @include px2rem(width, 110);
+  @include px2rem(height, 110);
+  @include px2rem(margin, 0 30 0 40);
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+}
+.u_mobile{
+  @include font-dpr(42);
+  @include px2rem(line-height, 42);
+  @include px2rem(height, 42);
+  @include px2rem(margin, 10 0 20);
+}
+.u_member{
+  display: block;
+  font-size: 0;
+}
+.u_member{
+  @include px2rem(width, 114);
+  @include px2rem(height, 30);
+  background: {
+    repeat:no-repeat;
+    position: center;
+    size: 1.52rem /* 114/75 */ .4rem /* 30/75 */;
+  }
+}
+.u_setting_box{
+  position: absolute;
+  right: .1333rem /* 10/75 */;
+  top: 0;
+}
+.uc_setting,.u_signin{
+  @include px2rem(min-width, 48);
+  margin-right: .4rem /* 30/75 */;
+  padding: .8267rem /* 62/75 */ 0  0;
+  @include font-dpr(22);
+  outline: none;
+  color:#666;
+  background: {
+    position:  center .1333rem /* 10/75 */ ;
+    repeat:no-repeat;
+    size:.64rem /* 48/75 */ .64rem /* 48/75 */;
+    color: #fff;
+  }
+}
+.u_signin{
+  background-image:url(../../assets/icon/user/mine_sign_in_icon@3x.png);
+}
+.uc_setting{
+  background-image:url(../../assets/icon/user/mine_settings_icon@3x.png);
+}
+// 非登录情况下样式
+.u_unlogin_banner{
+  background: url(../../assets/icon/user/mine_bj@3x.png) no-repeat center #fff;
+  @include px2rem(background-size, 750 413);
+  text-align: center;
+  @include font-dpr(24);
+  h5{
+    padding: 1.24rem /* 93/75 */ 0  0;
+    @include font-dpr(52);
+    line-height: 1.1733rem /* 88/75 */;
+  }
+  p{
+    color: #999;
+  }
+}
+.u_login_btn{
+  display: inline-block;
+  margin-top: .7333rem /* 55/75 */;
+  @include px2rem(width, 280);
+  @include px2rem(height, 74);
+  @include px2rem(line-height, 74);
+  @include px2rem(border-radius, 20);
+  @include font-dpr(30);
+  text-align: center;
+  background-color: #FE664F;
+  color: #fff;
+}
+
+.u_top_show{
+  // @include px2rem(height, 140);
+  @include px2rem(padding, 34 0);
+  a {
+    position: relative;
+    text-align: center;
+    @include px2rem(line-height, 36);
+    @include px2rem(height, 72);
+    color: #666;
+    @include font-dpr(26);
+    &:before{
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      @include px2rem(width, 2);
+      // width: 1px;
+      background-color: #d8d8d8;
+    }
+    &:last-child{
+      &:before{
+        display: none;
+      }
+    }
+    span{
+      display: block;
+      @include px2rem(height, 36);
+    }
+    span:first-child{
+      @include font-dpr(36);
+      font-weight: bold;
+      @include px2rem(margin, 0 0 4);
+    }
+  }
+}
+//
+.hasNewRed{
+  .u_newRedHb {
+    &:after{
+      content: "";
+      position: absolute;
+      background: url("../../assets/icon/user/newest_icon@3x.png") no-repeat center;
+      @include wh(16, 16);
+      @include px2rem(background-size, 16 16);
+      margin: -.1rem 0 0 0;
+    }
+  }
+}
+
+// nav
+.u_center_wrap{
+  background-color: #fff;
+  h5{
+    @include font-dpr(34);
+    @include px2rem(height, 94);
+    border-bottom: 1px solid #e1e1e1;
+    @include px2rem(line-height, 94);
+    @include px2rem(margin, 0 0 0 30);
+    font-weight: bold;
+  }
+}
+.u_center_box {
+  padding: .5333rem /* 40/75 */  0 .1333rem /* 10/75 */;
+  a {
+    position: relative;
+    display: block;
+    width: 25%;
+    @include px2rem(line-height, 46);
+    text-align: center;
+    @include font-dpr(26);
+    color: #333;
+    @include px2rem(padding-top, 58);
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: .4rem /* 30/75 */;
+    @include px2rem(background-size, 48 48);
+    .hot{
+      position: absolute;
+      background: url("../../assets/icon/user/mine_hot_icon@3x.png") no-repeat center;
+      background-size: contain;
+      width: .7867rem /* 59/75 */;
+      height: .3867rem /* 29/75 */;
+      z-index: 2;
+      top: 0;
+      left: 50%;
+    }
+  }
+}
+
+.u_wk_bill{
+  background-image: url("../../assets/icon/user/mine_bill_icon@3x.png");
+}
+.u_wk_withdraw{
+  background-image: url("../../assets/icon/user/mine_withdraw_icon@3x.png");
+}
+.u_wk_bank {
+  background-image: url("../../assets/icon/user/mine_bankcard_icon@3x.png")
+}
+.u_wk_quota{
+  background-image: url("../../assets/icon/user/mine_mentioning_icon@3x.png")
+}
+.u_wk_plus{
+  background-image: url("../../assets/icon/user/mine_plus_icon@3x.png")
+}
+.u_wk_share{
+  background-image: url("../../assets/icon/user/mine_invite_icon@3x.png")
+}
+.u_wk_jie {
+  background-image: url("../../assets/icon/user/mine_preferred_icon@3x.png")
+}
+.u_wk_welfare {
+  background-image: url("../../assets/icon/user/mine_welfare_icon@3x.png")
+}
+.u_wk_pointsmall {
+  background-image: url("../../assets/icon/user/mine_integral_icon@3x.png")
+}
+
+.u_sc_order{
+  background-image: url("../../assets/icon/user/mine_orders_icon@3x.png")
+}
+.u_sc_hb{
+  background-image: url("../../assets/icon/user/mine_mallcoupon_icon@3x.png")
+}
+.u_sc_tuihuo{
+  background-image: url("../../assets/icon/user/mine_aftersales_icon@3x.png")
+}
+.u_sc_address{
+  background-image: url("../../assets/icon/user/mine_address_icon@3x.png")
+}
+
+// 列表
+.u_main_warp {
+  .u_item{
+    position: relative;
+    @include px2rem(padding, 0);
+    @include px2rem(height, 100);
+    @include px2rem(line-height, 100);
+  }
+  .u_value_arr,.u_value {
+    @include px2rem(line-height, 100);
+  }
+  .u_value{
+    @include font-dpr(24);
+    color: #999;
+  }
+}
+
+.clipboard_btn{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top:0;
+  opacity: 0;
+  z-index: 3;
+}
+.u_tel_list{
+  padding: .2667rem /* 20/75 */ 0 ;
+  text-align: center;
+  line-height: 1;
+  @include font-dpr(24);
+  color: #ccc;
+  a{
+    color: #666;
+    letter-spacing: .0533rem /* 4/75 */;
+    @include font-dpr(36);
+  }
+}
+.u_tel_item{
+  p{
+    &:first-child{
+        padding: 0 0 .2667rem /* 20/75 */ ;
+    }
+  }
+  padding: .2667rem /* 20/75 */ 0;
+}

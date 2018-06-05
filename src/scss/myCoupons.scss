@@ -1,0 +1,153 @@
+@import "app";
+$xjColor: #a7b7ca;
+$jkColor: #ccb07e;
+$sxColor:#989898;
+.tab {
+  width: 100%;
+  @include px2rem(height,100);
+  @include px2rem(font-size,28);
+  @include px2rem(padding-top,20);
+  @include px2rem(line-height,60);
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+  text-align: center;
+  color: #686868;
+  .on {
+    color: #ee442a;
+    background: url(../../assets/icon/coupon/tabLine.png)no-repeat bottom;
+    @include px2rem(background-size,90 2);
+  }
+}
+.coup_list {
+  @include px2rem(margin,0 30);
+  @include px2rem(padding,40 0);
+}
+.coup_item {
+  @include px2rem(margin,0 0 40);
+  @include font-dpr(24);
+  position: relative;
+  background-color: #fff;
+  color: $sxColor;
+  @include px2rem(padding,0 30);
+  @include px2rem(border-bottom-left-radius,10);
+  @include px2rem(border-bottom-right-radius,10);
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    @include px2rem(top,-10);
+    @include px2rem(height,10);
+    background-color: $sxColor;
+    @include px2rem(border-top-left-radius,10);
+    @include px2rem(border-top-right-radius,10);
+  }
+}
+.coup_unuse{
+  .coup_tit{
+    color:#484848;
+  }
+  .coup_xj{
+    &:before{
+      background-color: $xjColor;
+    }
+    .coup_num,.coup_date{
+      color: $xjColor;
+    }
+    .coup_date{
+      border-top-color: $xjColor;
+    }
+  }
+  .coup_jk{
+    &:before{
+      background-color: $jkColor;
+    }
+    .coup_num,.coup_date{
+      color: $jkColor;
+    }
+    .coup_date{
+      border-top-color: $jkColor;
+    }
+  }
+}
+.coup_info{
+  @include px2rem(padding,24 0);
+  .flex{
+    @include px2rem(height,54);
+    @include px2rem(line-height,54);
+  }
+  .flex:first-child{
+    @include font-dpr(28);
+  }
+  .coup_rt{
+    width: 60%;
+  }
+}
+.coup_rt{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+.coup_num{
+  span{
+    vertical-align: sub;
+    @include font-dpr(50);
+  }
+}
+.coup_date {
+  @include px2rem(height,60);
+  @include px2rem(line-height,58);
+  border-top-width:1px;
+  border-top-style: dashed;
+  border-top-color: $sxColor;
+}
+.coup_rules{
+  position: relative;
+  @include px2rem(height,80);
+}
+.rule_btn {
+  position: absolute;
+  @include px2rem(line-height,40);
+  @include px2rem(top,40);
+  @include px2rem(padding-left,40);
+  @include px2rem(right,30);
+  @include font-dpr(28);
+  background: url(../../assets/icon/coupon/cou_faq.png) no-repeat left;
+  @include px2rem(background-size,30 30);
+}
+.hbsm {
+  background-image: -webkit-linear-gradient(to top, #ee4040, #fd8b63);
+  background-image: linear-gradient(to top, #ee4040, #fd8b63);
+  margin: 0 auto;
+  @include px2rem(width, 562);
+  @include font-dpr(24);
+  border-radius: .2rem;
+  color: #fff;
+  p{
+    @include px2rem(padding,0  60);
+    @include px2rem(margin, 0 0 20);
+    line-height: 1.4;
+    span{
+      color: #fde228;
+    }
+    &:last-child{
+      @include px2rem(padding,0  60 20);
+    }
+  }
+}
+.hbsm_title{
+  @include px2rem(height, 198);
+  background: url(../../assets/icon/coupon/hbsm_title.png) no-repeat center -.6rem;
+  @include px2rem(background-size,592 198);
+}
+.hbsm_close{
+  position: absolute;
+  @include px2rem(width, 40);
+  @include px2rem(height, 40);
+  @include px2rem(top, -16);
+  @include px2rem(right, -16);
+  background: url(../../assets/icon/coupon/hbsm_close.png) no-repeat center;
+  @include px2rem(background-size,40 40);
+}

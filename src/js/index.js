@@ -1,26 +1,31 @@
-document.write("Hello World!")
-var day=new Date().getDay();
-switch (day)
-{
-case 0:
-  x="Today it's Sunday";
-  break;
-case 1:
-  x="Today it's Monday";
-  break;
-case 2:
-  x="Today it's Tuesday";
-  break;
-case 3:
-  x="Today it's Wednesday";
-  break;
-case 4:
-  x="Today it's Thursday";
-  break;
-case 5:
-  x="Today it's Friday";
-  break;
-case 6:
-  x="Today it's Saturday";
-  break;
+getDate = () => {
+  var day=new Date().getDay();
+  switch (day)
+  {
+  case 0:
+    x="Today it's Sunday";
+    break;
+  case 1:
+    x="Today it's Monday";
+    break;
+  case 2:
+    x="Today it's Tuesday";
+    break;
+  case 3:
+    x="Today it's Wednesday";
+    break;
+  case 4:
+    x="Today it's Thursday";
+    break;
+  case 5:
+    x="Today it's Friday";
+    break;
+  case 6:
+    x="Today it's Saturday";
+    break;
+  }
+  return x;
 }
+const {name,age} = {"name":"zhao","age":24}
+console.log(name+age)
+console.log(getDate())

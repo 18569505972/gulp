@@ -1,0 +1,221 @@
+@import "app";
+.ft_btn_box{
+  @include px2rem(margin, 40 30);
+}
+.ft_btn{
+  @include lh(100, 100);
+  @extend %boradius;
+  background: $colred;
+  @extend %colfff;
+  @include font-dpr(34);
+  @extend %dibct;
+  display: block;
+  width: 100%;
+  &.go_register{
+    color: $colred;
+    border: 1px solid $colred;
+    background: #fff;
+    @include px2rem(margin,30 0);
+  }
+}
+.bg_fff {
+  background-color: #fff;
+}
+.forget_box {
+  @include px2rem(height,50);
+  @include px2rem(line-height,50);
+  position: relative;
+}
+.forget_pw{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25%;
+  padding-right: 0.4rem;
+  height: 0.66667rem;
+  line-height: 0.66667rem;
+  text-align: right;
+  @include font-dpr(24);
+  .pw_a{
+    color: #fe664f;
+  }
+}
+.input_container {
+  margin-top: 0.26667rem;
+}
+.input_item {
+  margin: 0 0.4rem;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid #ccc;
+  line-height: 0.8rem;
+  color: #484848;
+  @include font-dpr(28);
+  &:first-child {
+    border-top: 0;
+  }
+}
+.input_box {
+  @include px2rem(margin-right, 50);
+}
+.input_select{
+  width: 80%;
+  border: 1px solid #989898;
+  @include px2rem(height, 70);
+  @include px2rem(margin, 20 0);
+  @include px2rem(padding, 0 7);
+}
+.input_txt{
+  width: 100%;
+  @include px2rem(height, 110);
+  border: none;
+  @include px2rem(padding, 30 7);
+  @include px2rem(line-height, 50);
+}
+.input_txt ,.input_select{
+  background: transparent;
+  @include px2rem(line-height, 50);
+  @include font-dpr(28);
+  box-sizing: border-box;
+}
+.input_val{
+  @include px2rem(width, 160);
+  @include px2rem(line-height, 110);
+  @include px2rem(height, 110);
+  &.tr{
+    text-align: right;
+  }
+}
+.input_err_box{
+  min-height: 0.66667rem;
+}
+.input_err{
+  width: 75%;
+  height: 0.66667rem;
+  line-height: 0.66667rem;
+  padding-left: 0.9rem;
+  @include font-dpr(24);
+  background: url("../../assets/icon/ico/icon-ti.png") no-repeat 0.4rem center;
+  background-size: 0.42667rem 0.42667rem;
+  color: $colred;
+}
+.mt30{
+  @include px2rem(margin-top,30);
+}
+.check_err_box{
+  height:  1rem;
+}
+.check_tips,.check_err{
+  line-height: 0.66667rem;
+  padding: 0.2rem 0.4rem;
+  @include font-dpr(24);
+}
+.check_tips{
+  color: #484848;
+}
+.check_err{
+  color: #fe664f;
+}
+.onoff_pw,.input_icon {
+  &.on_pw {
+    background: url("../../assets/icon/ico/icon-kan.png") no-repeat right center;
+    background-size: 0.52rem 0.30667rem;
+  }
+  &.off_pw {
+    background: url("../../assets/icon/ico/icon-kan1.png") no-repeat right center;
+    background-size: 0.52rem 0.4rem;
+  }
+}
+.input_icon {
+  @include px2rem(width,60);
+  &.icon_mobile {
+    background: url("../../assets/icon/ico/icon-mobil.png") no-repeat  center;
+    background-size: 0.4rem 0.54667rem;
+  }
+  &.icon_picVerify {
+    background: url("../../assets/icon/ico/icon_picVerify.png") no-repeat  center;
+    background-size: 0.48rem 0.34667rem;
+  }
+  &.icon_validCode {
+    background: url("../../assets/icon/ico/icon-yan.png") no-repeat  center;
+    background-size: 0.48rem 0.34667rem;
+  }
+  &.icon_pw, &.icon_yqm {
+    background: url("../../assets/icon/ico/icon-suo.png") no-repeat  center;
+    background-size: 0.41333rem 0.45333rem;
+  }
+  &.icon_uName {
+    background: url("../../assets/icon/ico/icon-me.png") no-repeat  center;
+    background-size: 0.42667rem 0.44rem;
+  }
+  &.icon_idCard {
+    background: url("../../assets/icon/ico/icon-zheng.png") no-repeat  center;
+    background-size: 0.48rem 0.4rem;
+  }
+  &.icon_del{
+    @include px2rem(width,48);
+    background: url("../../assets/icon/ico/icon_del.png") no-repeat right center;
+    @include px2rem(background-size,36 36)
+  }
+}
+.infoItem .icon_del{
+  height: 1.33333rem;
+  line-height: 1.33333rem;
+}
+.onoff_pw{
+  @include px2rem(width,42);
+  @include px2rem(margin-left,10);
+}
+.onoff_pw, .input_icon {
+  @include px2rem(height,110);
+  display: block;
+}
+.send_validCode {
+  display: block;
+  width: 3.06667rem;
+  text-align: center;
+  border: 1px solid $colred;
+  border-radius: 0.13333rem;
+  color: $colred;
+  font-size: 0.37rem;
+  @include px2rem(height,70);
+  @include px2rem(line-height,70);
+  @include px2rem(margin-top,20);
+  img{
+    display: inline-block;
+    width: 85%;
+    vertical-align: middle;
+    @include px2rem(max-height,70);
+  }
+}
+// 设置交易密码提示
+.setpw_tips {
+  text-align: center;
+  color: #484848;
+  @include px2rem(font-size, 28);
+  @include px2rem(padding, 20 0);
+}
+.register_hd{
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+  position: relative;
+  padding: 0.533rem 0.72rem;
+  >li{
+    width: 32.6%;
+    text-align: center;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    @include font-dpr(32);
+    border-bottom: 2px solid #ccc;
+    color: #989898;
+    &.current{
+      color: $colred;
+      border-bottom: 2px solid $colred;
+    }
+  }
+}
+// 错误提示信息宽度100%
+.input_err_100 {
+  width: 100%;
+}
