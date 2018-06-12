@@ -11,37 +11,50 @@ const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const del = require('del');
 const plumber = require('gulp-plumber');
-const livereload = require('gulp-livereload');
-const connect = require('gulp-connect');
 const cache = require('gulp-cache');
 const browserSync = require('browser-sync').create();
-const reload = browserSync.reload;
-/*实时监控*/
-gulp.task("watchNow", function() {
-    browserSync.init({
-        files: [
-             "src/**/.html", 
-             "./src/**/*.css",
-             "./src/**/*.js"
-         ],
-         logLevel: "debug",
-         logPrefix: "insgeek",
-         server: {
-            /*这里写的是html文件相对于根目录所在的文件夹*/
-             baseDir: "./src",
-            /*这里如果不写，默认启动的是index.html，如果是其他名字，需要这里写*/
-             index: "doctor_finish.html"
-        },
-        ghostMode: {
-            clicks: true,
-            forms: true,
-            scroll: true
-        },
-        browser: "chrome"
-    });
-}); 
+const reload = browserSync.reload; 
+const GulpSSH = require('gulp-ssh');
+const config = require('./config/config.js');
+const env=process.argv.splice(2);
+var sshConfig = config.ssh;
+//打开ssh通道
+var gulpSSH = new GulpSSH({
+    ignoreErrors: false,
+    sshConfig: sshConfig
+});
+
+/**
+ * 上传文件
+ */
+ 
+gulp.task('dest', () => {
+  return gulp
+    .src('dist/**/*')
+    .pipe(gulpSSH.dest(config.remoteDir))
+})
+
+/**
+ * 执行命令
+ */
+gulp.task('commandsRm', () => {
+    console.log(config.commandsrm+'删除服务器上现有文件...');
+    return gulpSSH.shell(config.commandsrm, {filePath: 'remove.log'})
+        .pipe(gulp.dest('logs'));
+});
+gulp.task('commandsDl', () => {
+    console.log('下载依赖模块...');
+    return gulpSSH.shell(config.commandsdl, {filePath: 'download.log'})
+        .pipe(gulp.dest('logs'));
+});
+//启用
+gulp.task('dev',
+    gulp.series(
+        'dest',
+    )
+);
 //压缩除demo1.js和demo2.js外的所有js，babel转换
-gulp.task('jsmin', function() {
+gulp.task('jsmin', () => {
     return gulp.src(['src/js/**/*.js', '!src/js/**/{demo1,demo2}.js'])
         .pipe(plumber())
         .pipe(babel())
@@ -50,13 +63,12 @@ gulp.task('jsmin', function() {
             compress: true, //类型：Boolean 默认：true 是否完全压缩
         }))
         .pipe(gulp.dest('dist/js'))
-        .pipe(connect.reload())
         .on('error', (err) => {
             console.log(err)
         });
 });
 //页面引用资源添加版本号+html压缩
-gulp.task('htmlminRun', function() {
+gulp.task('htmlminRun',() => {
     var options = {
         removeComments: true, //清除HTML注释
         collapseWhitespace: true, //压缩HTML
@@ -72,13 +84,12 @@ gulp.task('htmlminRun', function() {
         .pipe(htmlmin(options))
         .pipe(rev())
         .pipe(gulp.dest('dist'))
-        .pipe(reload({stream:true}))
         .on('error', (err) => {
             console.log(err)
         });
 });
 //css压缩+css添加浏览器前缀
-gulp.task('cssminRun', function() {
+gulp.task('cssminRun', () => {
     return gulp.src('src/css/**/*.css')
         .pipe(plumber())
         .pipe(autoprefixer({
@@ -96,13 +107,12 @@ gulp.task('cssminRun', function() {
             //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
         }))
         .pipe(gulp.dest('dist/css'))
-        .pipe(connect.reload())
         .on('error', (err) => {
             console.log(err)
         });
 });
 //less编译+css添加浏览器前缀+css压缩
-gulp.task('compileless', function() {
+gulp.task('compileless', () => {
     return gulp.src('src/less/**/*.less')
         .pipe(plumber())
         .pipe(lessMin())
@@ -121,13 +131,12 @@ gulp.task('compileless', function() {
             //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
         }))
         .pipe(gulp.dest('dist/less'))
-        .pipe(connect.reload())
         .on('error', (err) => {
             console.log(err)
         });
 });
 //sass编译+css添加浏览器前缀+css压缩
-gulp.task('compilesass', function() {
+gulp.task('compilesass', () => {
     return gulp.src('src/scss/**/*.scss')
         .pipe(plumber())
         .pipe(sassMin())
@@ -146,13 +155,12 @@ gulp.task('compilesass', function() {
             //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
         }))
         .pipe(gulp.dest('dist/scss'))
-        .pipe(connect.reload())
         .on('error', (err) => {
             console.log(err)
         });
 });
 //压缩发生改变的图片 
-gulp.task('imageminTest', function() {
+gulp.task('imageminTest', () => {
     return gulp.src('src/img/**/*.{png,jpg,gif,ico}')
         .pipe(plumber())
         .pipe(cache(imagemin({
@@ -161,32 +169,46 @@ gulp.task('imageminTest', function() {
             use: [pngquant()] //使用pngquant深度压缩png图片的imagemin插件
         })))
         .pipe(gulp.dest('dist/img'))
-        .pipe(connect.reload())
         .on('error', (err) => {
             console.log(err)
         });
 });
-//监听文件变化
-gulp.task('antwatch', function() {
-    gulp.watch('src/**/*.html', 'htmlminRun')
-    gulp.watch('src/css/**/*.css', 'cssminRun')
-    gulp.watch('src/less/**/*.less', 'compileless')
-    gulp.watch('src/scss/**/*.scss', 'compilesass')
-    gulp.watch('src/js/**/*.js', 'jsmin')
-    gulp.watch('src/img/**/*.{png,jpg,gif,ico}', 'imageminTest')
-});
 //清空文件夹
-gulp.task('clean', function() {
+gulp.task('clean', () => {
     return del([
         'dist/**/*',
     ]);
 });
-//启用websocket服务
-gulp.task('startserver', function() {
-    return connect.server({
-        livereload: true,
-        port: 8888
-    })
+/*实时监控*/
+gulp.task("watchNow",() => {
+    browserSync.init({
+        files: [
+             "dist/**/.html", 
+             "./dist/**/*.css",
+             "./dist/**/*.js"
+         ],
+         logLevel: "debug",
+         logPrefix: "insgeek",
+         server: {
+            /*这里写的是html文件相对于根目录所在的文件夹*/
+             baseDir: "./dist",
+            /*这里如果不写，默认启动的是index.html，如果是其他名字，需要这里写*/
+             index: "doctor_finish.html"
+        },
+        ghostMode: {
+            clicks: true,
+            forms: true,
+            scroll: true
+        },
+        browser: "chrome"
+    });
+    gulp.watch("dist/**/*").on('change', reload);
+    gulp.watch('src/scss/**/*.scss',gulp.series('compilesass'));
+    gulp.watch('src/less/**/*.less',gulp.series('compileless'));
+    gulp.watch('src/img/**/*.{png,jpg,gif,ico}',gulp.series('imageminTest'));
+    gulp.watch('src/css/**/*.css',gulp.series('cssminRun'));
+    gulp.watch('src/**/*.html',gulp.series('htmlminRun'));
+    gulp.watch('src/js/**/*.js',gulp.series('jsmin'));
 });
 //启用
 gulp.task('build',
@@ -200,7 +222,6 @@ gulp.task('build',
             'compilesass',
             'imageminTest',
         ),
-        'watchNow',
-        'startserver'
+        'watchNow'
     )
 );

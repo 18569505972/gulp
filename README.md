@@ -13,17 +13,19 @@ cnpm inst除多余属性等）
 cnpm inall --save-dev gulp-sass  将sass文件编译成css    
 cnpm install babel-cli --save-dev  babel安装     
 cnpm install --save-dev babel-preset-es2015  ES2015转码规则  
-cnpm install --save-dev gulp-babel  安装gulp-babel    
-页面引用资源添加版本号，避免缓存
-cnpm install gulp-rev-append --save-dev   
+cnpm install --save-dev gulp-babel  安装gulp-babel      
+cnpm install gulp-rev-append --save-dev     页面引用资源添加版本号，避免缓存
 cnpm install gulp-zip --save-dev   zip压缩包
 cnpm install gulp-uglify --save-dev  js压缩
 cnpm install --save-dev gulp-plumber  阻止 gulp 插件发生错误导致进程退出并输出错误日志  
-cnpm install gulp-autoprefixer --save-dev 自动处理浏览器前缀  
-cnpm install gulp-livereload --save-dev 文件发生变化浏览器自动刷新(适用于谷歌浏览器，需安装livereload插件)    
-cnpm install gulp-connect --save-dev 开启一个websocket服务，使用liveReload实现实时更新  
-cnpm install browser-sync --save-dev   
+cnpm install gulp-autoprefixer --save-dev 自动处理浏览器前缀   
+cnpm install browser-sync --save-dev  开启一个websocket服务，使用Reload实现实时更新  
+cnpm install gulp-ssh --save-dev ssh代码上传    
 (gulp.series gulp.parallel适用于gulp 4.0版本）  
+本地测试：gulp build  
+		编译src下文件到dist下，浏览器自动打开已配置的首页html，监听src下文件变化，并进行编译，dist发生改变刷新浏览器  
+代码上传：gulp dev  
+		下载openssh进行本地ssh代码上传测试（代码上传已成功，但shell命令会卡死，暂时还没解决）  
 
 
 
