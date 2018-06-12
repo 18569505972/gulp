@@ -1,5 +1,5 @@
 # gulp
-gulp环境搭建
+# gulp环境搭建
 cnpm init  初始化package.json  
 cnpm install gulp --save-dev  下载gulp模块保存本地  
 cnpm install --save-dev gulp@next del  清理文件夹  
@@ -22,9 +22,9 @@ cnpm install gulp-autoprefixer --save-dev 自动处理浏览器前缀
 cnpm install browser-sync --save-dev  开启一个websocket服务，使用Reload实现实时更新  
 cnpm install gulp-ssh --save-dev ssh代码上传    
 (gulp.series gulp.parallel适用于gulp 4.0版本）  
-本地测试：gulp build  
+# 本地测试：gulp build  
 		编译src下文件到dist下，浏览器自动打开已配置的首页html，监听src下文件变化，并进行编译，dist发生改变刷新浏览器  
-代码上传：gulp dev  
+# 代码上传：gulp dev  
 		下载openssh进行本地ssh代码上传测试（代码上传已成功，但shell命令会卡死，暂时还没解决）  
 
 
